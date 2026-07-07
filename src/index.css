@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 30% 96%;
+    --foreground: 20 40% 20%;
+
+    --card: 30 30% 100%;
+    --card-foreground: 20 40% 20%;
+
+    --popover: 30 30% 100%;
+    --popover-foreground: 20 40% 20%;
+
+    --primary: 25 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 40% 92%;
+    --secondary-foreground: 20 40% 25%;
+
+    --muted: 30 20% 90%;
+    --muted-foreground: 20 15% 45%;
+
+    --accent: 40 80% 65%;
+    --accent-foreground: 20 40% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 25% 85%;
+    --input: 30 25% 88%;
+    --ring: 25 90% 55%;
+
+    --radius: 1rem;
+
+    /* Custom glassmorphism variables */
+    --glass-bg: 30 50% 100% / 0.25;
+    --glass-border: 30 50% 100% / 0.3;
+    --glass-blur: 20px;
+    
+    /* Warm gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(25 90% 55%), hsl(35 85% 60%), hsl(40 80% 65%));
+    --gradient-peach: linear-gradient(180deg, hsl(30 50% 95%), hsl(25 40% 90%));
+    --gradient-hero: linear-gradient(135deg, hsl(25 60% 85%) 0%, hsl(35 50% 90%) 50%, hsl(40 45% 92%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 80% 60%), hsl(35 85% 55%));
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(25 40% 20% / 0.1);
+    --shadow-card: 0 4px 20px hsl(25 40% 20% / 0.08);
+    --shadow-hover: 0 12px 40px hsl(25 40% 20% / 0.15);
+
+    --sidebar-background: 30 30% 98%;
+    --sidebar-foreground: 20 40% 25%;
+    --sidebar-primary: 25 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 40% 94%;
+    --sidebar-accent-foreground: 20 40% 25%;
+    --sidebar-border: 30 25% 88%;
+    --sidebar-ring: 25 90% 55%;
+  }
+
+  .dark {
+    --background: 20 30% 8%;
+    --foreground: 30 20% 95%;
+
+    --card: 20 25% 12%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 20 25% 12%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 25 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 20% 18%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 20 20% 18%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 40 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 20% 20%;
+    --input: 20 20% 20%;
+    --ring: 25 90% 55%;
+
+    --glass-bg: 20 30% 15% / 0.4;
+    --glass-border: 30 30% 30% / 0.3;
+
+    --sidebar-background: 20 25% 10%;
+    --sidebar-foreground: 30 20% 90%;
+    --sidebar-primary: 25 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 20 20% 15%;
+    --sidebar-accent-foreground: 30 20% 90%;
+    --sidebar-border: 20 20% 18%;
+    --sidebar-ring: 25 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/25 backdrop-blur-xl border border-white/30 shadow-glass;
+  }
+
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-lg border border-white/40 rounded-2xl shadow-card;
+  }
+
+  .glass-sidebar {
+    @apply bg-white/30 backdrop-blur-2xl border-r border-white/30;
+  }
+
+  .warm-gradient {
+    background: var(--gradient-warm);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-hover;
+  }
+
+  .input-glass {
+    @apply bg-white/50 backdrop-blur-sm border border-white/40 rounded-xl px-4 py-3 
+           focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50
+           transition-all duration-200 placeholder:text-muted-foreground/60;
+  }
+
+  .btn-warm {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-medium 
+           rounded-xl px-6 py-3 shadow-card hover:shadow-hover hover:-translate-y-0.5
+           transition-all duration-300 ease-out;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 hover-lift cursor-default;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.4s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
