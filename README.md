@@ -1,5 +1,7 @@
 # Medivance - Smart Hospital Management System
 
+🚀 **Live Deployed Site**: [https://medivance-hukg.onrender.com/](https://medivance-hukg.onrender.com/)
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yashpatel069/MEDIVANCE)
 
 Medivance is a premium, state-of-the-art smart hospital management system designed to make healthcare administration and access seamless, fast, and secure. 
